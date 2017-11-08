@@ -6,7 +6,9 @@ public class Main {
 
         Game game = new Game("hangman");
 
-        
+        game.applyGuess('h');
+
+
 
     }
 }
