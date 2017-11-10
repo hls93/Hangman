@@ -4,9 +4,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Game game = new Game("hangman");
+        Game game = new Game("marsupial");
 
-        game.applyGuess('h');
+        Prompter prompter = new Prompter(game);
+
+        boolean isHit = prompter.promptForGuess();
+        if (isHit){
+            System.out.println("We got a hit");
+        }
+        else {
+            System.out.println("Oops missed");
+        }
 
 
 
