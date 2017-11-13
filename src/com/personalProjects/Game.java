@@ -17,19 +17,22 @@ public class Game {
         boolean isHit = answer.indexOf(letter) != -1;
         if (isHit) {
             hits += letter;
-        }
-        else {
+        } else {
             misses += letter;
         }
         return isHit;
     }
 
-    public String getCurrentProgress(){
+    public int getRemainingTries(){
+        return MAX_MISSES - misses.length();
+    }
+
+    public String getCurrentProgress() {
         String progress = "";
 
-        for( char letter : answer.toCharArray()){
+        for (char letter : answer.toCharArray()) {
             char display = '-';
-            if(hits.indexOf(letter) !=-1) {
+            if (hits.indexOf(letter) != -1) {
                 display = letter;
             }
             progress += display;
