@@ -22,4 +22,9 @@ public class Prompter {
         return game.applyGuess(guess);
     }
 
+    public void displayProgress(){
+        System.out.printf("Try to solve: %s%n", game.getCurrentProgress());
+
+    }
+
 }

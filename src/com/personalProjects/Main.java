@@ -7,6 +7,7 @@ public class Main {
         Game game = new Game("marsupial");
 
         Prompter prompter = new Prompter(game);
+        prompter.displayProgress();
 
         boolean isHit = prompter.promptForGuess();
         if (isHit){
@@ -16,7 +17,7 @@ public class Main {
             System.out.println("Oops missed");
         }
 
-
+        prompter.displayProgress();
 
     }
 }

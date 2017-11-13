@@ -2,6 +2,7 @@ package com.personalProjects;
 
 public class Game {
 
+    public static final int MAX_MISSES = 7;
     private String answer;
     private String hits;
     private String misses;
@@ -21,6 +22,19 @@ public class Game {
             misses += letter;
         }
         return isHit;
+    }
+
+    public String getCurrentProgress(){
+        String progress = "";
+
+        for( char letter : answer.toCharArray()){
+            char display = '-';
+            if(hits.indexOf(letter) !=-1) {
+                display = letter;
+            }
+            progress += display;
+        }
+        return progress;
     }
 
 }
