@@ -7,6 +7,10 @@ public class Game {
     private String hits;
     private String misses;
 
+    public String getAnswer() {
+        return answer;
+    }
+
     public Game(String answer) {
         this.answer = answer.toLowerCase();
         hits = "";
@@ -37,6 +41,13 @@ public class Game {
         return isHit;
     }
 
+    public boolean applyGuess(String letters) {
+        if (letters.length() == 0) {
+            throw new IllegalArgumentException("No letter found");
+        }
+        return applyGuess(letters.charAt(0));
+    }
+
     public int getRemainingTries(){
         return MAX_MISSES - misses.length();
     }
@@ -52,6 +63,10 @@ public class Game {
             progress += display;
         }
         return progress;
+    }
+
+    public boolean isWon() {
+        return getCurrentProgress().indexOf('-') == -1;
     }
 
 }
