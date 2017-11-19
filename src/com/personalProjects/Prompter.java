@@ -13,13 +13,28 @@ public class Prompter {
     public boolean promptForGuess() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a letter:  ");
+        boolean isHit = false;
 
-        String guessInput = scanner.nextLine();
+        boolean isAcceptable = false;
 
-        char guess = guessInput.charAt(0);
+        do {
+            System.out.print("Enter a letter:  ");
 
-        return game.applyGuess(guess);
+            String guessInput = scanner.nextLine();
+
+            char guess = guessInput.charAt(0);
+
+            try {
+                isHit = game.applyGuess(guess);
+                isAcceptable = true;
+
+            } catch (IllegalArgumentException iae) {
+                System.out.printf("%s. Please try again. %n", iae.getMessage());
+            }
+        }
+        while (! isAcceptable);
+
+        return isHit;
     }
 
     public void displayProgress() {
